@@ -57,31 +57,31 @@ The following can be copy-pasted to a Kaggle notebook (or Google Colab):
 
 We provide notebooks that elaborate upon each of the 7 significant steps in our approach:
 
-* [1. Aligning the signal and channels with linear regression](notebooks/1%20-%20Align%20Channels%20and%20Signal.ipynb)
+* [1. Aligning the signal and channels with linear regression](notebooks/1%20-%20Align%20Channels%20and%20Signal.html)
 
 We align the signal and channels. A simple baseline which just rounds the signal values scores an F1 of `0.9211271639823664`
 
-* [2. Removing power line interference](notebooks/2%20-%20Remove%20Power%20Line%20Interference.ipynb)
+* [2. Removing power line interference](notebooks/2%20-%20Remove%20Power%20Line%20Interference.html)
 
 We remove 50 Hz power line interference. This slightly improves the F1 of our baseline: `0.9250468415867467`
 
-* [3. Hidden Markov Models: a naive approach](notebooks/3%20-%20Fit%204-state%20HMM%20(Cat%203).ipynb)
+* [3. Hidden Markov Models: a naive approach](notebooks/3%20-%20Fit%204-state%20HMM%20(Cat%203).html)
 
 We show how a naive approach of a Hidden Markov Model already increased the F1 significantly. The category 3 F1 score for our baseline approach is `0.9738199736256037` while a Hidden Markov Model with 4 hidden states scores an F1 of `0.9840563515575094`.
 
-* [4. Setting the Ptran variables](notebooks/4%20-%20Setting%20the%20Transition%20Matrix.ipynb)
+* [4. Setting the Ptran variables](notebooks/4%20-%20Setting%20the%20Transition%20Matrix.html)
 
 We show how you could go about tuning the Ptran which is needed for further steps
 
-* [5. K Independent Hidden Markov Models](notebooks/5%20-%20Fit%2020-state%20HMM%20(Cat%203).ipynb)
+* [5. K Independent Hidden Markov Models](notebooks/5%20-%20Fit%2020-state%20HMM%20(Cat%203).html)
 
 We show that, by assumining K independent binary Markov Processes, for data that goes up to K open channels, that we can significantly increase the F1. We show this for category 3 of our data, where we expand a 4x4 transition matrix used to model category 2 to a 20x20 matrix. The achieved F1 score, using only category 3 data, is `0.9866748988341756`.
 
-* [6. A custom forward-backward (inference) algorithm](notebooks/6%20-%20Custom%20Forward-Backward%20(Cat%203).ipynb)
+* [6. A custom forward-backward (inference) algorithm](notebooks/6%20-%20Custom%20Forward-Backward%20(Cat%203).html)
 
 We adapt the forward-backward algorithm to work both faster and slightly more accurate. The F1 score on category 3 data is `0.986794704167445`. The impact, in terms of F1 score, is more significant for category 4 and 5 of the data (which were the most important ones).
 
-* [7. Post-processing the posterior probabilities](notebooks/7%20-%20Prediction%20Post-Processing%20(Cat%203).ipynb)
+* [7. Post-processing the posterior probabilities](notebooks/7%20-%20Prediction%20Post-Processing%20(Cat%203).html)
 
 We convert the posterior probabilities (more probabilities than the number of classes) to a continuous value by taking the dot product between the probabilities and the open channels to which each respective hidden state corresponds to. We then learn thresholds, again in an unsupervised manner, to convert these continuous values to a discrete number of open channels. This increases the F1 for our category 3 data to `0.9869704508621362`.
 
